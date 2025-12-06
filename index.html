@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetNet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- PETNET THEME CONFIGURATION --- */
+        :root {
+            /* Colors extracted from PALETA.png */
+            --petnet-red: #EA5B6A;   /* Used for alerts/hearts */
+            --petnet-blue: #508CBB;  /* Primary Brand Blue */
+            --petnet-green: #60D67A; /* Primary Brand Green */
+            
+            /* Gradient from Login/Signup pages */
+            --petnet-gradient: linear-gradient(135deg, #508CBB 0%, #60D67A 100%);
+            
+            --bg-color: #F8F9FA;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Matches Figma font style */
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER (Gradient Style) --- */
+        header {
+            background: var(--petnet-gradient); /* Matches Login Page Background */
+            color: var(--white);
+            padding: 3rem 1rem;
+            text-align: center;
+            border-bottom-left-radius: 30px; /* UI rounded corner detail */
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 15px rgba(80, 140, 187, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            cursor: pointer; /* indicates this element is interactive for dblclick */
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            max-width: 1000px;
+            margin: -30px auto 0; /* Overlaps header slightly */
+            padding: 0 20px 40px;
+            position: relative;
+        }
+
+        /* --- SECTIONS & CARDS --- */
+        .card {
+            background: var(--white);
+            border-radius: 20px; /* Matches Figma card radius */
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        h2 {
+            color: var(--petnet-blue);
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        /* Small underline accent using the Red color */
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--petnet-red);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        p { color: var(--text-light); }
+
+        .tag {
+            display: inline-block;
+            background: rgba(96, 214, 122, 0.15);
+            color: #4CAF50; /* Darker version of PetNet Green for text */
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        /* --- VIDEO GRID --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .video-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .video-item {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background: #000;
+        }
+
+        .video-wrapper iframe, .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h3 {
+            margin: 0 0 10px;
+            color: var(--text-dark);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--petnet-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="site-title" tabindex="0" title="Clique duas vezes para abrir outra página">PetNet</h1>
+        <p>Apresentação do Projeto</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card" id="about">
+            <span class="tag">Projeto Acadêmico</span>
+            <span class="tag" style="background: rgba(80, 140, 187, 0.15); color: #3b7dae;">Mobile App</span>
+            
+            <h2>Sobre o PetNet</h2>
+            <p>
+                O PetNet é uma plataforma integrada desenvolvida para conectar ONGs, protetores de animais, prestadores de serviços e adotantes. 
+                O objetivo é facilitar a adoção responsável e centralizar serviços essenciais para pets.
+            </p>
+            <p>
+                <strong>Tecnologias utilizadas:</strong> Figma (Prototipagem), Flutter, Django, GitHub Pages.
+            </p>
+        </div>
+
+        <div class="card" id="videos">
+            <h2>Demonstração do App</h2>
+            <p>Abaixo estão os vídeos demonstrando a navegação e as funcionalidades principais do PetNet e o Pitch de Apresentação.</p>
+            
+            <div class="video-grid">
+                
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Vídeo 1: Funcionamento da plataforma</h3>
+                        <p>Demonstração do funcionamento da plataforma de forma completa.</p>
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Vídeo 2: <em>Pitch</em> de apresentação</h3>
+                        <p>Video explicando o principais pontos da plataforma</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Projeto PetNet. Desenvolvido por .</p>
+    </footer>
+
+    <script>
+        // Double-click on the title redirects to another page in the same folder.
+        // Change 'otherpage.html' below to the file you want to open.
+        (function () {
+            var title = document.getElementById('site-title');
+            if (!title) return;
+
+            function go() {
+                window.location.href = 'presentation.html';
+            }
+
+            title.addEventListener('dblclick', go);
+
+            // Optional: support keyboard users (Enter key)
+            title.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') go();
+            });
+        })();
+    </script>
+
+</body>
+</html>
